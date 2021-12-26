@@ -1,0 +1,44 @@
+<html>
+    {% load tailwind_tags %}
+    {% load static %}
+
+    <head>
+        <title>My blog</title>
+        {% tailwind_css %}
+    </head>
+    <body>
+      <header class="bg-red-700 text-white mb-10 py-8">
+        <div class="container mx-auto flex flex-row items-center">
+          <p class="font-bold text-4xl mr-10">SMB-801 blog</p>
+
+          {% if user.is_authenticated %}
+            <a href="{% url 'post_new' %}" class="p-2 bg-red-400 rounded-lg drop-shadow">Новый пост +</a>
+          {% else %}
+             <a href="{% url 'account_login' %}" class="p-2 bg-red-400 rounded-lg drop-shadow">Log in</a>
+          {% endif %}
+        </div>
+      </header>
+
+      <main class="flex flex-col gap-4">
+        {% for post in posts %}
+          <article class="container mx-auto px-4 py-8 bg-red-400 rounded-lg text-white drop-shadow">
+            <div class="flex flex-row items-baseline gap-2">
+              <h2 class="text-2xl font-bold my-1">{{ post.title }}</h2>
+              <h3 class="text-xl italic font-extralight">by {{ post.author }}</h3>
+            </div>
+
+            <p class="text-justify">{{ post.text|linebreaksbr }}</p>
+
+          </article>
+        {% endfor %}
+      </main>
+
+      <footer class="bg-red-600 text-white py-8 mt-5">
+        <div class="container mx-auto">
+          <p class="font-bold text-sm ">
+            Связаться со мной можно <a class="underline" href="https://vk.com/astefux">тут</a>
+          </p>
+        </div>
+      </footer>
+    </body>
+</html>

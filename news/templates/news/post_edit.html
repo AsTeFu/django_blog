@@ -1,0 +1,34 @@
+<html>
+    {% load tailwind_tags %}
+    {% load static %}
+
+    <head>
+        <title>My blog</title>
+        {% tailwind_css %}
+    </head>
+    <body>
+      <header class="bg-red-700 text-white mb-10 py-8">
+        <div class="container mx-auto flex flex-row items-center">
+          <p class="font-bold text-4xl">SMB-801 blog</p>
+        </div>
+      </header>
+
+      <main class="flex flex-col gap-4">
+        <article class="container mx-auto">
+          <h1 class="text-4xl font-bold my-3">New post</h1>
+          <form method="POST" class="flex flex-col gap-5">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="self-start rounded-lg px-7 py-2 text-white font-bold bg-red-500">Save</button>
+          </form>
+        </article>
+      </main>
+
+      <footer class="bg-red-600 text-white py-8 fixed bottom-0 left-0 right-0">
+        <div class="container mx-auto">
+          <p class="font-bold text-sm ">
+            Связаться со мной можно <a class="underline" href="https://vk.com/astefux">тут</a>
+          </p>
+        </div>
+      </footer>
+    </body>
+</html>
