@@ -25,7 +25,7 @@ SECRET_KEY = 'uq25&0$9ar49g%_jj9v-=j+91ynmmzi^h26o9wroxumpum0_27'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'astefu.pythonanywhere.com']
 
 INTERNAL_IPS = [
     "127.0.0.1",
